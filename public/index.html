@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXU // Premium Apparel</title>
+    <title>NEXU // Future Apparel</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;700;900&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
@@ -18,16 +19,20 @@
 
 <body>
 
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <header class="glass">
         <div class="logo">NEXU</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#collection">Collection</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" class="magnetic">Home</a></li>
+                <li><a href="#collection" class="magnetic">Collection</a></li>
+                <li><a href="#" class="magnetic">About</a></li>
             </ul>
         </nav>
-        <div class="cart-btn">
+        <div class="cart-btn magnetic">
             <div class="cart-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,15 +48,26 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>WEAR THE<br>FUTURE</h1>
-                <p>Premium cybernetic apparel designed for the next generation. Experience comfort meets futuristic
-                    aesthetics.</p>
-                <a href="#collection" class="btn btn-primary">Explore Collection</a>
+                <h1 class="reveal-text">WEAR THE<br><span class="highlight">FUTURE</span></h1>
+                <p class="reveal-text delay-1">Premium cybernetic apparel designed for the next generation.</p>
+                <a href="#collection" class="btn btn-primary magnetic reveal-text delay-2">Explore Collection</a>
+            </div>
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="line"></div>
             </div>
         </section>
 
+        <!-- Marquee Section -->
+        <div class="marquee-container">
+            <div class="marquee">
+                <span>CYBERPUNK AESTHETICS // FUTURE READY // PREMIUM QUALITY // NEXU ORIGINALS // </span>
+                <span>CYBERPUNK AESTHETICS // FUTURE READY // PREMIUM QUALITY // NEXU ORIGINALS // </span>
+            </div>
+        </div>
+
         <section id="collection" class="products">
-            <h2 class="section-title">Latest Drops</h2>
+            <h2 class="section-title reveal-scroll">Latest Drops</h2>
             <div class="product-grid">
                 <!-- Products injected by JS -->
             </div>
