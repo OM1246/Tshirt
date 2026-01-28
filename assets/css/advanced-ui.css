@@ -1,0 +1,196 @@
+/* 
+  ADVANCED UI UPGRADES 
+  Imported into global.css
+*/
+
+/* --- 1. Terminal Loader --- */
+#terminal-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-cyan);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    padding: 20px;
+    transition: opacity 0.5s ease;
+}
+
+.loader-text {
+    max-width: 600px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* --- 2. Custom Tactical Cursor --- */
+body {
+    cursor: none;
+    /* Hide default */
+}
+
+a,
+button,
+input,
+select,
+.glass-card {
+    cursor: none;
+    /* Ensure it stays hidden */
+}
+
+#cursor-crosshair {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    mix-blend-mode: difference;
+}
+
+#cursor-crosshair::after {
+    content: '';
+    /* The center dot */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-cyan);
+    transform: translate(-50%, -50%);
+}
+
+#cursor-crosshair.active {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 243, 255, 0.1);
+    border-color: var(--primary-purple);
+}
+
+/* --- 3. Holographic Tilt Cards --- */
+.glass-card {
+    transition: transform 0.1s;
+    /* Fast for tilt */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.glass-card:hover {
+    /* box-shadow handled in JS for color shift? Or keep css */
+}
+
+/* --- 4. Glitch Text --- */
+.glitch-text {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+}
+
+.glitch-text::before {
+    color: #ff00c1;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    color: #00fff9;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        clip: rect(30px, 9999px, 10px, 0);
+    }
+
+    20% {
+        clip: rect(85px, 9999px, 90px, 0);
+        transform: skew(0.5deg);
+    }
+
+    40% {
+        clip: rect(15px, 9999px, 5px, 0);
+        transform: skew(0.1deg);
+    }
+
+    60% {
+        clip: rect(60px, 9999px, 70px, 0);
+    }
+
+    80% {
+        clip: rect(5px, 9999px, 25px, 0);
+        transform: skew(0.8deg);
+    }
+
+    100% {
+        clip: rect(45px, 9999px, 55px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(65px, 9999px, 100px, 0);
+        transform: skew(0.5deg);
+    }
+
+    20% {
+        clip: rect(10px, 9999px, 35px, 0);
+    }
+
+    40% {
+        clip: rect(90px, 9999px, 95px, 0);
+        transform: skew(0.2deg);
+    }
+
+    60% {
+        clip: rect(20px, 9999px, 40px, 0);
+    }
+
+    80% {
+        clip: rect(50px, 9999px, 85px, 0);
+    }
+
+    100% {
+        clip: rect(10px, 9999px, 5px, 0);
+        transform: skew(0.5deg);
+    }
+}
+
+/* --- 5. Neon Scroll Progress --- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--primary-purple);
+    box-shadow: 0 0 15px var(--primary-purple);
+    width: 0%;
+    z-index: 10001;
+    transition: width 0.1s;
+}
+
+/* --- 6. Magnetic Buttons (handled in JS mostly, but we need structure) --- */
+.btn {
+    /* Already styled, JS will manipulate transform */
+}
